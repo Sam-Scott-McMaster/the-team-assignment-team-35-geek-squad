@@ -1,3 +1,4 @@
 #include "uniconv.h"
 
-void read_inputs(char *type, char initial[UNITS_MAX_LENGTH]) {}
+void read_input(char *type, char input[INPUT_MAX_LENGTH],
+                char output_unit[UNITS_MAX_LENGTH], int argc, char *argv[]) {}

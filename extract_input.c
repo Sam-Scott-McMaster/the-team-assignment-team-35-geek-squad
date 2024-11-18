@@ -1,9 +1,3 @@
-#include <regex.h>
-#include <stdio.h>
+#include "uniconv.h"
 
-void getInput(int argc, char *argv[], int *num)
-{
-
-
-
-}
+void read_input(char *type, char input[], char output_unit[]) {}
