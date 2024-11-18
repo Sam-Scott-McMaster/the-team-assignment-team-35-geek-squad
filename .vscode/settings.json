@@ -10,5 +10,6 @@
     "ratio": "c",
     "tuple": "c",
     "vector": "c"
-  }
+  },
+  "C_Cpp_Runner.msvcBatchPath": ""
 }
