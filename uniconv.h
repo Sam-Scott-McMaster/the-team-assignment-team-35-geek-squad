@@ -9,4 +9,7 @@
 
 void print_usage();
 void print_help();
-void read_input(char *type, char input[], char output_unit[]);
+void read_input(int argc, char *argv[], char *type,
+                char input[INPUT_MAX_LENGTH],
+                char output_unit[UNITS_MAX_LENGTH]);
+// void extract_input(char *type, char input[], char output_unit[]);
