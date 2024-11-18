@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
   char output_unit[UNITS_MAX_LENGTH];  // value from -o
 
   // Retrieves type, input and output_unit from command
-  read_input(&type, input, output_unit);
+  read_input(&type, input, output_unit, argc, argv);
 
   int input_value;                    // value from -i
   char input_unit[UNITS_MAX_LENGTH];  // unit from -i
