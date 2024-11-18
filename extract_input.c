@@ -1,3 +1,3 @@
 #include "uniconv.h"
 
-void extract_input(char *type, char input[], char output_unit[]) {}
+void read_input(char *type, char input[], char output_unit[]) {}
