@@ -6,3 +6,5 @@
 #define UNITS_MAX_LENGTH = 4;
 
 void print_usage();
+void print_help();
+
