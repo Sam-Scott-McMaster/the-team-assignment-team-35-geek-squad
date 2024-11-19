@@ -1,0 +1,20 @@
+name: Build Script For clean.c
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build clean
+        run: make clean
+
+      - name: upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: Clean Data
+          path: ./clean
