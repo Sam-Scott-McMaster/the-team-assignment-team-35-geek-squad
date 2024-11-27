@@ -29,7 +29,7 @@ convert [-t t|T|d|D|a|A|v|V|m|M] [-i <number><unit>] [-o <unit>] [...options]
   Remove the unit from the output.  
   Example: Converts `1000m` to `1km` as `1` instead of `1km`.
 
-## Supported Conversions:
+## Supported Conversions
 
 1. **Temperature**  
    - Kelvin, Celsius, Fahrenheit
