@@ -1,4 +1,4 @@
-name: Build Script For conversion.c
+name: Unit Converter - uniconv.c
 
 on:
   push:
@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: build conversion
-        run: make conversion
+      - name: build uniconv
+        run: make test
 
       - name: upload binary
         uses: actions/upload-artifact@v4
         with:
-          name: Clean Data
-          path: ./conversion
+          name: Run Unit Converter
+          path: ./uniconv
