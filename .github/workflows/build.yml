@@ -1,4 +1,4 @@
-name: Build Script For clean.c
+name: Build Script For conversion.c
 
 on:
   push:
@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: build clean
-        run: make clean
+      - name: build conversion
+        run: make conversion
 
       - name: upload binary
         uses: actions/upload-artifact@v4
         with:
           name: Clean Data
-          path: ./clean
+          path: ./conversion
