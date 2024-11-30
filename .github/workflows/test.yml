@@ -24,4 +24,4 @@ jobs:
           name: Test Results
           path: |
             ./test_results.txt
-            ./*.c.gcov
+            ./*
