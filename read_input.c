@@ -38,7 +38,7 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
       if (result == 1) {
         PROVIDED_INPUT_UNIT = TRUE;
       } else {
-        fprintf(stderr, "Invalid input format.\n");
+        fprintf(stderr, "Invalid unit.\n");
         exit(EXIT_FAILURE);
       }
 

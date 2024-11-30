@@ -1,0 +1,38 @@
+HELP MENU
+
+OPTIONS
+  -t TYPE             Specify the type of conversions.
+                      t|T: Temprature
+                      d|D: Distance
+                      a|A: Area
+                      v|V: Volume
+                      m/M: Mass
+
+  -iv <double>        Optional value to convert from for the conversion. 
+                      If value not provided, program will continuously convert numbers from stdin. 
+                      Example: 10.00, 31.3, 22.
+
+  -iu <unit>          Unit to convert from for the conversion. 
+                      For units such as area and volume, do not include the exponent in the unit. 
+                      Example: yd, mi, m, mm, kg, f, C.
+
+  -ru                 Remove unit from the output.
+                      Example; 1000m to km results in 1 instead of 1km.
+
+SUPPORTED CONVERSIONS  1. Temperature: Kelvin, Celsius, Fahrenhiet.
+  2. Distance:.
+      - Metric: Terameter, Gigameter, ..., Meter, ..., Millitmeter.
+  3. Area.
+      - Metric: Terameter^2, ..., Millimeter^2.
+      - Imperial: Inch^2, Foot^2, Yard^2, Mile^2.
+  4. Volume:
+      - Metric: Terameter^3, ..., Millimeter^3.
+      - Imperial: Inch^3, Foot^3, Yard^3, Mile^3.
+  5. Mass:
+      - Metric: Teragram, ..., Milligram.
+      - Imperial: Ounce, Pound, Stone.
+
+NOTES
+  - Ensure correct units are used for input and output to avoid errors.
+  - For invalid inputs or unsupported conversions, the app will prompt for corrections.
+

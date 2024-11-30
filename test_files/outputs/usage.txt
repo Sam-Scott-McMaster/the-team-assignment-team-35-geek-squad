@@ -1,0 +1,4 @@
+Usage:
+
+convert [-t t|T|d|D|a|A|v|V|m|M] [-i <number><unit>] [-o <unit>] [...options]
+

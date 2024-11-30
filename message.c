@@ -28,6 +28,9 @@ void print_help() {
   printf("                      Example: 10.00, 31.3, 22.\n\n");
 
   printf("  -iu <unit>          Unit to convert from for the conversion. \n");
+  printf(
+      "                      For units such as area and volume, do not include "
+      "the exponent in the unit. \n");
   printf("                      Example: yd, mi, m, mm, kg, f, C.\n\n");
 
   printf("  -ru                 Remove unit from the output.\n");

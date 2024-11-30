@@ -1,0 +1,121 @@
+#!/bin/bash
+#
+# A simple framework for regression testing the convert (ctest) script
+#
+# Returns the number of failed test cases.
+#
+# Format of a test:
+#     test 'command' 'input file name' 'expected output file name' 'expected std error file name'
+#
+# Some example test cases are given. You should add more test cases.
+#
+# CAUTION: Uses temporary files named test_err.txt and test_out.txt
+# 
+# Sam Scott, McMaster University, 2024
+#
+declare -i tc=0
+declare -i fails=0
+
+############################################
+# Run a single test. Runs a given command 
+# to check the return value, stdout, and stderr
+#
+# GLOBALS: tc, fails
+# PARAMS: $1 = command
+#         $2 = input file name
+#         $3 = expected std output file name
+#         $4 = expected std error file name
+#
+# Assumes return value should be 0 if the
+# std error file is empty. Otherwise it 
+# should be 1.
+#
+# OUTPUTS: An pass/fail report showing the
+# difference between expected and actual
+# output on a failure (diff command)
+############################################
+test() {
+    tc=tc+1
+
+    local COMMAND=$1
+    local INP=$2
+    local EX_OUT=$3
+    local EX_ERR=$4 
+
+    EX_RET=1
+    if [[ $(cat $EX_ERR) = "" ]]; then
+        EX_RET=0
+    fi
+    $COMMAND < $INP > test_out.txt 2> test_err.txt
+    RET=$?
+    if [[ $RET != $EX_RET ]]; then
+        echo "TC $tc Failed"
+        echo "Returned $RET"
+        echo "-----------"
+        fails=$fails+1
+        return
+    fi
+    DIFF=$(diff test_out.txt $EX_OUT)
+    if [[ $DIFF != '' ]]; then
+        echo "TC $tc Failed Standard Output"
+        echo "$DIFF"
+        echo "-----------"
+        fails=$fails+1
+        return
+    fi
+    DIFF=$(diff test_err.txt $EX_ERR)
+    if [[ $DIFF != '' ]]; then
+        echo "TC $tc Failed Standard Error"
+        echo "$DIFF"
+        echo "-----------"
+        fails=$fails+1
+        return
+    fi
+
+    echo "TC $tc Passed"
+}
+
+# test1: temperature: C to f
+# test2: temperature: f to K
+# test3: temperature: C to K
+
+# test4: distance: imperial to imperial
+# test5: distance: metric to imperial
+# test6: distance: metric to metric
+
+# test7: area: imperial to imperial
+# test8: area: metric to imperial
+# test9: area: metric to metric
+
+# test10: volume: imperial to imperial
+# test11: volume: metric to imperial
+# test12: volume: metric to metric
+
+# test13: mass: imperial to imperial
+# test14: mass: metric to imperial
+# test15: mass: metric to metric
+
+# test16: negative value no loop
+# test17: negative value loop
+
+# test18: Invalid temperature unit input
+# test19: Invalid temperature unit outpu
+# test20: Invalid distance unit input
+# test21: Invalid distance unit output
+# test22: Invalid mass unit
+
+# test23: Not all arguments are provided 1
+test './uniconv -t d -iv 1000 -iu m' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/usage.txt'
+
+# test24: Not all arguments are provided 2
+test './uniconv -iv 1000 -iu m -o km' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/usage.txt'
+
+# test25: remove units
+test './uniconv -t d -iv 1000 -iu m -o km' 'test_files/inputs/empty.txt' 'test_files/outputs/test25.txt' 'test_files/outputs/empty.txt'
+
+
+# clean up
+rm test_err.txt test_out.txt
+
+# return code
+exit $fails

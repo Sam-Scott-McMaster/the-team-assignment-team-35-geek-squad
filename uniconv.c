@@ -11,6 +11,12 @@ int main(int argc, char *argv[]) {
   // Retrieve unit type, input value, input unit and output unit from args
   read_input(argc, argv, &type, &input_value, input_unit, output_unit);
 
+  // HANDLE ERROR: Check if input and output are not the same
+  if (strcmp(input_unit, output_unit) == 0) {
+    fprintf(stderr, "Input and output units must be different.\n");
+    exit(EXIT_FAILURE);
+  }
+
   // If input value not provided, continuously read input value
   if (PROVIDED_INPUT_VALUE == FALSE) {
     while (scanf("%lf", &input_value) != EOF) {

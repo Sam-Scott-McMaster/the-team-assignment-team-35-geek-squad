@@ -69,7 +69,7 @@ double calculate_conversion(char type, char* input_unit, double input_value,
         get_mass_factor(input_unit) / get_mass_factor(output_unit);
     return input_value * multiplier;
   } else {
-    print_usage();
+    fprintf(stderr, "Invalid type.\n");
     exit(EXIT_FAILURE);
   }
 }
@@ -88,7 +88,7 @@ double get_distance_factor(char* unit) {
   }
 
   // HANDLE ERROR: distance unit is invalid
-  print_usage();
+  fprintf(stderr, "Invalid unit.\n");
   exit(EXIT_FAILURE);
 }
 
@@ -106,8 +106,7 @@ double get_mass_factor(char* unit) {
   }
 
   // HANDLE ERROR: mass unit is invalid
-  fprintf(stderr, "Invalid mass unit.\n");
-  print_usage();
+  fprintf(stderr, "Invalid unit.\n");
   exit(EXIT_FAILURE);
 }
 
@@ -124,7 +123,7 @@ double convert_temperature(char* input_unit, double input_value,
     intermediate = input_value;
   } else {
     // HANDLE ERROR: temperature input unit is invalid
-    print_usage();
+    fprintf(stderr, "Invalid unit.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -137,7 +136,7 @@ double convert_temperature(char* input_unit, double input_value,
     return intermediate;
   } else {
     // HANDLE ERROR: temperature output unit is invalid
-    print_usage();
+    fprintf(stderr, "Invalid unit.\n");
     exit(EXIT_FAILURE);
   }
 }
