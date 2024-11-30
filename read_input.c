@@ -32,9 +32,6 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
       // HANDLE ERROR: Check if unit was provided
       if (result == 1) {
         PROVIDED_INPUT_UNIT = TRUE;
-      } else {
-        fprintf(stderr, "Invalid unit.\n");
-        exit(EXIT_FAILURE);
       }
 
     }

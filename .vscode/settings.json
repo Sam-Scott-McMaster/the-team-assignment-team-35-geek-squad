@@ -14,7 +14,8 @@
     "string.h": "c",
     "__locale": "c",
     "ostream": "c",
-    "print": "c"
+    "print": "c",
+    "math.h": "c"
   },
   "C_Cpp_Runner.msvcBatchPath": ""
 }
