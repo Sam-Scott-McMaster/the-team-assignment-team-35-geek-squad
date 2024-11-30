@@ -19,9 +19,12 @@ void print_help() {
   printf("                      m/M: Mass\n\n");
 
   printf("  -i <number><unit>   Input value and unit to convert from. \n");
-  printf("                      Example: km, yd, L.\n\n");
+  printf("                      Example: 10km, 2yd, 3.3L.\n\n");
 
-  printf("  -ru                 Remove unit from the outpit.\n");
+  printf("  -ru                 Remove unit from the output.\n");
+  printf(
+      "  -ctn                Continuously convert values instead of just "
+      "one.\n");
   printf(
       "                      Example; 1000m to km results in 1 instead of "
       "1km.\n\n");
