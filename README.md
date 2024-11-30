@@ -6,7 +6,7 @@ The Unit Converter App provides a simple and efficient way to convert between va
 
 ## Usage
 
-convert [-t t|T|d|D|a|A|v|V|m|M] [-iv <number>] [-iu <unit>] [-o <unit>] [...options]
+convert [-t char] [-iv double] [-iu unit] [-o unit] [...options]
 
 ## Options
 
