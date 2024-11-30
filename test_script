@@ -84,30 +84,38 @@ test './uniconv -t t -iv 123 -iu f -o C' 'test_files/inputs/empty.txt' 'test_fil
 # test3: temperature: C to K
 test './uniconv -t t -iv 0 -iu C -o K' 'test_files/inputs/empty.txt' 'test_files/outputs/test3.txt' 'test_files/outputs/empty.txt'
 
-# test4: distance: imperial to imperial
-# test5: distance: metric to imperial
-# test6: distance: metric to metric
+# test4: distance 
+test './uniconv -t d -iv 513.341 -iu m -o cm' 'test_files/inputs/empty.txt' 'test_files/outputs/test4.txt' 'test_files/outputs/empty.txt'
 
-# test7: area: imperial to imperial
-# test8: area: metric to imperial
-# test9: area: metric to metric
+# test7: area 
+test './uniconv -t a -iv -1000 -iu m -o km' 'test_files/inputs/empty.txt' 'test_files/outputs/test7.txt' 'test_files/outputs/empty.txt'
 
-# test10: volume: imperial to imperial
-# test11: volume: metric to imperial
-# test12: volume: metric to metric
+# test10: volume
+test './uniconv -t v -iv -1000 -iu m -o km' 'test_files/inputs/empty.txt' 'test_files/outputs/test10.txt' 'test_files/outputs/empty.txt'
 
-# test13: mass: imperial to imperial
-# test14: mass: metric to imperial
-# test15: mass: metric to metric
+# test13: mass 
+test './uniconv -t t -iv 0 -iu C -o K' 'test_files/inputs/empty.txt' 'test_files/outputs/test13.txt' 'test_files/outputs/empty.txt'
 
-# test16: negative value no loop
-# test17: negative value loop
+# test16: negative distance
+test './uniconv -t m -iv 1234 -iu g -o kg' 'test_files/inputs/empty.txt' 'test_files/outputs/test16.txt' 'test_files/outputs/empty.txt'
+
+# test17: less than 0K
+test './uniconv -t t -iv -300 -iu C -o K' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/test17.txt'
 
 # test18: Invalid temperature unit input
-# test19: Invalid temperature unit outpu
+test './uniconv -t t -iv 0 -iu sss -o K' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/invalid-unit.txt'
+
+# test19: Invalid temperature unit output
+test './uniconv -t t -iv 0 -iu C -o tadsa' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/invalid-unit.txt'
+
 # test20: Invalid distance unit input
+test './uniconv -t d -iv 0 -iu C -o km' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/invalid-unit.txt'
+
 # test21: Invalid distance unit output
+test './uniconv -t d -iv 0 -iu m -o tadsa' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/invalid-unit.txt'
+
 # test22: Invalid mass unit
+test './uniconv -t m -iv 1 -iu m -o kg' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/invalid-unit.txt'
 
 # test23: Not all arguments are provided 1
 test './uniconv -t d -iv 1000 -iu m' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/usage.txt'
@@ -117,6 +125,7 @@ test './uniconv -iv 1000 -iu m -o km' 'test_files/inputs/empty.txt' 'test_files/
 
 # test25: remove units
 test './uniconv -t d -iv 1000 -iu m -o km -ru' 'test_files/inputs/empty.txt' 'test_files/outputs/test25.txt' 'test_files/outputs/empty.txt'
+
 
 
 # clean up

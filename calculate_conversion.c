@@ -124,12 +124,17 @@ double convert_temperature(char* input_unit, double input_value,
   if (strcmp(input_unit, "f") == TRUE) {
     intermediate = (input_value - 32.0) * (5.0 / 9.0);
   } else if (strcmp(input_unit, "K") == TRUE) {
-    intermediate = input_value - 273.15;
+    intermediate = input_value + (KELVIN_ADJUSTMENT);
   } else if (strcmp(input_unit, "C") == TRUE) {
     intermediate = input_value;
   } else {
     // HANDLE ERROR: temperature input unit is invalid
     fprintf(stderr, "Invalid unit.\n");
+    exit(EXIT_FAILURE);
+  }
+
+  if (intermediate < KELVIN_ADJUSTMENT) {
+    fprintf(stderr, "Temperature must be greater than 0K.\n");
     exit(EXIT_FAILURE);
   }
 
