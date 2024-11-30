@@ -87,7 +87,7 @@ double get_distance_factor(char* unit) {
     }
   }
 
-  // TODO: add error handling, or handle it beforehand
+  // HANDLE ERROR: distance unit is invalid
   print_usage();
   exit(EXIT_FAILURE);
 }
@@ -105,7 +105,7 @@ double get_mass_factor(char* unit) {
     }
   }
 
-  // TODO: add error handling, or handle it beforehand
+  // HANDLE ERROR: mass unit is invalid
   print_usage();
   exit(EXIT_FAILURE);
 }
@@ -122,6 +122,7 @@ double convert_temperature(char* input_unit, double input_value,
   } else if (strcmp(input_unit, "C") == 0) {
     intermediate = input_value;
   } else {
+    // HANDLE ERROR: temperature input unit is invalid
     print_usage();
     exit(EXIT_FAILURE);
   }
@@ -134,6 +135,7 @@ double convert_temperature(char* input_unit, double input_value,
   } else if (strcmp(output_unit, "C") == 0) {
     return intermediate;
   } else {
+    // HANDLE ERROR: temperature output unit is invalid
     print_usage();
     exit(EXIT_FAILURE);
   }

@@ -14,8 +14,6 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
     // Type argument
     if (strcmp(argv[i], "-t") == 0) {
       strcpy(type, argv[i + 1]);
-
-      // TODO: Check if unit type is accepted
     }
 
     // Input argument
@@ -28,16 +26,12 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
         exit(EXIT_FAILURE);
       }
 
-      // TODO Check if input value is valid
-
-      // TODO Check if input unit is valid
+      // HANDLE ERROR: check if input value is positive
     }
 
     // Output unit argument
     else if (strcmp(argv[i], "-o") == 0) {
       strcpy(output_unit, argv[i + 1]);
-
-      // TODO: Check if ouput unit is accepted
     }
 
     i++;
