@@ -11,7 +11,10 @@
     "tuple": "c",
     "vector": "c",
     "uniconv.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "__locale": "c",
+    "ostream": "c",
+    "print": "c"
   },
   "C_Cpp_Runner.msvcBatchPath": ""
 }

@@ -76,13 +76,13 @@ double calculate_conversion(char type, char* input_unit, double input_value,
 
 double get_distance_factor(char* unit) {
   for (int i = 0; i < sizeof(distances_metric) / sizeof(factor); i++) {
-    if (strcmp(distances_metric[i].name, unit) == 0) {
+    if (strcmp(distances_metric[i].name, unit) == TRUE) {
       return distances_metric[i].value;
     }
   }
 
   for (int i = 0; i < sizeof(distances_imperial) / sizeof(factor); i++) {
-    if (strcmp(distances_imperial[i].name, unit) == 0) {
+    if (strcmp(distances_imperial[i].name, unit) == TRUE) {
       return distances_imperial[i].value;
     }
   }
@@ -94,18 +94,19 @@ double get_distance_factor(char* unit) {
 
 double get_mass_factor(char* unit) {
   for (int i = 0; i < sizeof(mass_metric) / sizeof(factor); i++) {
-    if (strcmp(mass_metric[i].name, unit) == 0) {
+    if (strcmp(mass_metric[i].name, unit) == TRUE) {
       return mass_metric[i].value;
     }
   }
 
   for (int i = 0; i < sizeof(mass_imperial) / sizeof(factor); i++) {
-    if (strcmp(mass_imperial[i].name, unit) == 0) {
+    if (strcmp(mass_imperial[i].name, unit) == TRUE) {
       return mass_imperial[i].value;
     }
   }
 
   // HANDLE ERROR: mass unit is invalid
+  fprintf(stderr, "Invalid mass unit.\n");
   print_usage();
   exit(EXIT_FAILURE);
 }
@@ -115,11 +116,11 @@ double convert_temperature(char* input_unit, double input_value,
   double intermediate;  // intermediate value in celsius
 
   // Convert to an intermediate celsius value
-  if (strcmp(input_unit, "f") == 0) {
+  if (strcmp(input_unit, "f") == TRUE) {
     intermediate = (input_value - 32.0) * (5.0 / 9.0);
-  } else if (strcmp(input_unit, "K") == 0) {
+  } else if (strcmp(input_unit, "K") == TRUE) {
     intermediate = input_value - 273.15;
-  } else if (strcmp(input_unit, "C") == 0) {
+  } else if (strcmp(input_unit, "C") == TRUE) {
     intermediate = input_value;
   } else {
     // HANDLE ERROR: temperature input unit is invalid
@@ -128,11 +129,11 @@ double convert_temperature(char* input_unit, double input_value,
   }
 
   // Return in terms of output unit
-  if (strcmp(output_unit, "f") == 0) {
+  if (strcmp(output_unit, "f") == TRUE) {
     return intermediate * (9.0 / 5.0) + 32.0;
-  } else if (strcmp(output_unit, "K") == 0) {
+  } else if (strcmp(output_unit, "K") == TRUE) {
     return intermediate + 273.15;
-  } else if (strcmp(output_unit, "C") == 0) {
+  } else if (strcmp(output_unit, "C") == TRUE) {
     return intermediate;
   } else {
     // HANDLE ERROR: temperature output unit is invalid
