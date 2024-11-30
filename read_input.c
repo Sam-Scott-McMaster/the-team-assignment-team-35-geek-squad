@@ -27,6 +27,10 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
       }
 
       // HANDLE ERROR: check if input value is positive
+      if (*input_value < 0) {
+        print_usage();
+        exit(EXIT_FAILURE);
+      }
     }
 
     // Output unit argument
