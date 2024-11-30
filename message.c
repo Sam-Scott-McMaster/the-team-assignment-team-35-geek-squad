@@ -5,7 +5,7 @@ void print_usage() {
   fprintf(stderr, "\n");
   fprintf(stderr,
           "convert [-t t|T|d|D|a|A|v|V|m|M] [-i <number><unit>] [-o <unit>] "
-          "[...options]");
+          "[...options]\n\n");
 }
 
 void print_help() {
@@ -18,19 +18,19 @@ void print_help() {
   printf("                      v|V: Volume\n");
   printf("                      m/M: Mass\n\n");
 
-
   printf("  -i <number><unit>   Input value and unit to convert from. \n");
   printf("                      Example: km, yd, L.\n\n");
 
-
   printf("  -ru                 Remove unit from the outpit.\n");
-  printf("                      Example; 1000m to km results in 1 instead of 1km.\n\n");
-
+  printf(
+      "                      Example; 1000m to km results in 1 instead of "
+      "1km.\n\n");
 
   printf("**SUPPORTED CONVERSIONS**");
   printf("  1. Temperature: Kelvin, Celsius, Fahrenhiet.\n");
   printf("  2. Distance:.\n");
-  printf("      - Metric: Terameter, Gigameter, ..., Meter, ..., Millitmeter.\n");
+  printf(
+      "      - Metric: Terameter, Gigameter, ..., Meter, ..., Millitmeter.\n");
   printf("  3. Area.\n");
   printf("      - Metric: Terameter^2, ..., Millimeter^2.\n");
   printf("      - Imperial: Inch^2, Foot^2, Yard^2, Mile^2.\n");
@@ -42,7 +42,10 @@ void print_help() {
   printf("      - Imperial: Ounce, Pound, Stone.\n\n");
 
   printf("**NOTES**\n");
-  printf("  - Ensure correct units are used for input and output to avoid errors.\n");
-  printf("  - For invalid inputs or unsupported conversions, the app will prompt for corrections.\n\n");
-
+  printf(
+      "  - Ensure correct units are used for input and output to avoid "
+      "errors.\n");
+  printf(
+      "  - For invalid inputs or unsupported conversions, the app will prompt "
+      "for corrections.\n\n");
 }
