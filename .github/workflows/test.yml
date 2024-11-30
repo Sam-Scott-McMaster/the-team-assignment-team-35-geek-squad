@@ -1,0 +1,27 @@
+name: CI - Test Uniconv Utility
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Tests
+        run: make ctest; bash ./test_script >test_results.txt
+
+      - name: Make Coverage files
+        run: gcov uniconv.c message.c read_input.c calculate_conversion.c print_output.c error.c
+
+      - name: Upload Test Results
+        if: ${{ always() }}
+
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Results
+          path: |
+            ./test_results.txt
+            ./*.c.gcov
