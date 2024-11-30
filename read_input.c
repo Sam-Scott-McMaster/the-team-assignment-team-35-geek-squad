@@ -25,6 +25,8 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
 
     }
 
+    // test
+
     // Input value argument
     else if (strcmp(argv[i], "-iu") == TRUE) {
       int result = sscanf(argv[i + 1], "%s", input_unit);
