@@ -55,13 +55,18 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
       OPTION_REMOVE_UNIT = TRUE;
     }
 
+    // HELP
+    else if (strcmp(argv[i], "--help") == TRUE) {
+      print_help();
+      exit(EXIT_SUCCESS);
+    }
+
     i++;
   }
 
   // HANDLE ERROR: check if all required inputs have been provided
   if (PROVIDED_INPUT_TYPE == FALSE || PROVIDED_INPUT_UNIT == FALSE ||
       PROVIDED_OUTPUT_UNIT == FALSE) {
-    printf("ERROR 2");
     print_usage();
     exit(EXIT_FAILURE);
   }

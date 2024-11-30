@@ -9,8 +9,9 @@ void print_usage() {
 }
 
 void print_help() {
-  printf("HELP MENU\n");
-  printf("**OPTIONS**\n");
+  printf("HELP MENU\n\n");
+
+  printf("OPTIONS\n");
   printf("  -t TYPE             Specify the type of conversions.\n");
   printf("                      t|T: Temprature\n");
   printf("                      d|D: Distance\n");
@@ -18,18 +19,23 @@ void print_help() {
   printf("                      v|V: Volume\n");
   printf("                      m/M: Mass\n\n");
 
-  printf("  -i <number><unit>   Input value and unit to convert from. \n");
-  printf("                      Example: 10km, 2yd, 3.3L.\n\n");
+  printf(
+      "  -iv <double>        Optional value to convert from for the "
+      "conversion. \n");
+  printf(
+      "                      If value not provided, program will continuously "
+      "convert numbers from stdin. \n");
+  printf("                      Example: 10.00, 31.3, 22.\n\n");
+
+  printf("  -iu <unit>          Unit to convert from for the conversion. \n");
+  printf("                      Example: yd, mi, m, mm, kg, f, C.\n\n");
 
   printf("  -ru                 Remove unit from the output.\n");
-  printf(
-      "  -ctn                Continuously convert values instead of just "
-      "one.\n");
   printf(
       "                      Example; 1000m to km results in 1 instead of "
       "1km.\n\n");
 
-  printf("**SUPPORTED CONVERSIONS**");
+  printf("SUPPORTED CONVERSIONS");
   printf("  1. Temperature: Kelvin, Celsius, Fahrenhiet.\n");
   printf("  2. Distance:.\n");
   printf(
@@ -44,7 +50,7 @@ void print_help() {
   printf("      - Metric: Teragram, ..., Milligram.\n");
   printf("      - Imperial: Ounce, Pound, Stone.\n\n");
 
-  printf("**NOTES**\n");
+  printf("NOTES\n");
   printf(
       "  - Ensure correct units are used for input and output to avoid "
       "errors.\n");
