@@ -20,11 +20,6 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
     else if (strcmp(argv[i], "-iv") == TRUE) {
       int result = sscanf(argv[i + 1], "%lf", input_value);
       if (result == 1) {
-        // HANDLE ERROR: Check if value is greater than 0
-        if (*input_value <= 0) {
-          fprintf(stderr, "Input value must be greater than 0.\n");
-          exit(EXIT_FAILURE);
-        }
         PROVIDED_INPUT_VALUE = TRUE;
       }
 

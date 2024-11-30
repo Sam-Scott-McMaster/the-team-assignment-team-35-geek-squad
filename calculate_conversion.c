@@ -65,6 +65,12 @@ double calculate_conversion(char type, char* input_unit, double input_value,
 
   // Mass calculation
   else if (type == 'm' || type == 'M') {
+    // HANDLE ERROR: Check if value is greater than 0
+    if (input_value <= 0) {
+      fprintf(stderr, "Input value must be greater than 0.\n");
+      exit(EXIT_FAILURE);
+    }
+
     double multiplier =
         get_mass_factor(input_unit) / get_mass_factor(output_unit);
     return input_value * multiplier;

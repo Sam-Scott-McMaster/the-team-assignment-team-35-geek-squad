@@ -20,12 +20,6 @@ int main(int argc, char *argv[]) {
   // If input value not provided, continuously read input value
   if (PROVIDED_INPUT_VALUE == FALSE) {
     while (scanf("%lf", &input_value) != EOF) {
-      // HANDLE ERROR: Check if value is greater than 0
-      if (input_value <= 0) {
-        fprintf(stderr, "Input value must be greater than 0.\n");
-        exit(EXIT_FAILURE);
-      }
-
       // Convert the input value in terms of the output value's units
       double converted =
           calculate_conversion(type, input_unit, input_value, output_unit);
