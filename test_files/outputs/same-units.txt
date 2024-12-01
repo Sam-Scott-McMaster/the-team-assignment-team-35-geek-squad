@@ -1,1 +1,1 @@
-Input and output units must be different.
+Error: The input and output are both the same units, please use different ones.

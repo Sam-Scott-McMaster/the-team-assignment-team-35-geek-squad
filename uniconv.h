@@ -1,15 +1,17 @@
 /* Naqeeb Ahmadzai, Arian Fallahpour-Sichani, Soham Hajariwala, Krish Haryani
-*  Ahmadzan, fallahpa, hajariws, 
-*  /12/03/2024/
-*
-* The app will ask the user to enter data in one unit, say Celsius for temperature or meters 
-* for distance, and indicate the unit or the quantity they want to convert to, say Fahrenheit 
-* or Kilometers. Furthermore, as far as error-handling is concerned, the app will continue to 
-* ask the user to input valid numbers if valid numbers are not inputted, ensuring that there are no errors.
-*
-* This file in particular will define constants, function prototypes, and global variables for the program.
-*/
-
+ *  Ahmadzan, fallahpa, hajariws,
+ *  /12/03/2024/
+ *
+ * The app will ask the user to enter data in one unit, say Celsius for
+ * temperature or meters for distance, and indicate the unit or the quantity
+ * they want to convert to, say Fahrenheit or Kilometers. Furthermore, as far as
+ * error-handling is concerned, the app will continue to ask the user to input
+ * valid numbers if valid numbers are not inputted, ensuring that there are no
+ * errors.
+ *
+ * This file in particular will define constants, function prototypes, and
+ * global variables for the program.
+ */
 
 #include <math.h>
 #include <regex.h>
@@ -53,4 +55,4 @@ void error_invalid_unit();
 void error_negative_mass();
 void error_missing_args();
 void error_same_units();
-void error_invalid_temperature(intermediate);
+void error_invalid_temperature(double temp);

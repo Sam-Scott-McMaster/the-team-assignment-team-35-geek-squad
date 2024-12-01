@@ -131,10 +131,10 @@ test './ctest -t d -iv 0 -iu m -o ww' 'test_files/inputs/empty.txt' 'test_files/
 test './ctest -t m -iv 1 -iu m -o kg' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/invalid-unit.txt'
 
 # test23: Not all arguments are provided 1
-test './ctest -t d -iv 1000 -iu m' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/usage.txt'
+test './ctest -t d -iv 1000 -iu m' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/test23.txt'
 
 # test24: Not all arguments are provided 2
-test './ctest -iv 1000 -iu m -o km' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/usage.txt'
+test './ctest -iv 1000 -iu m -o km' 'test_files/inputs/empty.txt' 'test_files/outputs/empty.txt' 'test_files/outputs/test23.txt'
 
 # test25: remove units
 test './ctest -t d -iv 1000 -iu m -o km -ru' 'test_files/inputs/empty.txt' 'test_files/outputs/test25.txt' 'test_files/outputs/empty.txt'

@@ -1,1 +1,1 @@
-Invalid type.
+Error: The conversion type provided is invalid.

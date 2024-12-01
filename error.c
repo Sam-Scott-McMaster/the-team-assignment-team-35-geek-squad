@@ -30,15 +30,15 @@ void error_invalid_unit() {
 // Handles negative mass.
 void error_negative_mass() {
   fprintf(stderr,
-          "Error: Mass cannot be negative, please input an valid mass.");
+          "Error: Mass cannot be negative, please input an valid mass.\n");
   exit(EXIT_FAILURE);
 }
 
 // Handles missing required arugments.
 void error_missing_args() {
   fprintf(stderr,
-          "Error: Missing required argumetns. Please use --help for usage "
-          "instrucitons.\n");
+          "Error: Missing required arguments. Please use --help for usage "
+          "instructions.\n");
   exit(EXIT_FAILURE);
 }
 
@@ -50,9 +50,11 @@ void error_same_units() {
   exit(EXIT_FAILURE);
 }
 
-
 // Handles invalid temprature.
 void error_invalid_temperature(double temp) {
-    fprintf(stderr, "Error: Temperature must be greater than 0 Kelvin. Provided: %.2lf\n", temp);
-    exit(EXIT_FAILURE);
+  fprintf(
+      stderr,
+      "Error: Temperature must be greater than 0 Kelvin. Provided: %.2lf.\n",
+      temp);
+  exit(EXIT_FAILURE);
 }

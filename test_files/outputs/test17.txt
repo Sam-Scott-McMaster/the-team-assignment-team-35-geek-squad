@@ -1,1 +1,1 @@
-Temperature must be greater than 0K.
+Error: Temperature must be greater than 0 Kelvin. Provided: -300.00.

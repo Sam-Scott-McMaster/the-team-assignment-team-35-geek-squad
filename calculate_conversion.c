@@ -1,14 +1,17 @@
 /* Naqeeb Ahmadzai, Arian Fallahpour-Sichani, Soham Hajariwala, Krish Haryani
-*  Ahmadzan, fallahpa, hajariws, 
-*  /12/03/2024/
-*
-* The app will ask the user to enter data in one unit, say Celsius for temperature or meters 
-* for distance, and indicate the unit or the quantity they want to convert to, say Fahrenheit 
-* or Kilometers. Furthermore, as far as error-handling is concerned, the app will continue to 
-* ask the user to input valid numbers if valid numbers are not inputted, ensuring that there are no errors.
-*
-* This file in particular will handle the logic for performing the actual unit conversions..
-*/
+ *  Ahmadzan, fallahpa, hajariws,
+ *  /12/03/2024/
+ *
+ * The app will ask the user to enter data in one unit, say Celsius for
+ * temperature or meters for distance, and indicate the unit or the quantity
+ * they want to convert to, say Fahrenheit or Kilometers. Furthermore, as far as
+ * error-handling is concerned, the app will continue to ask the user to input
+ * valid numbers if valid numbers are not inputted, ensuring that there are no
+ * errors.
+ *
+ * This file in particular will handle the logic for performing the actual unit
+ * conversions..
+ */
 
 #include "uniconv.h"
 
@@ -78,13 +81,16 @@ double calculate_conversion(char type, char* input_unit, double input_value,
   // Mass calculation
   else if (type == 'm' || type == 'M') {
     if (input_value <= 0) {
-     error_negative_mass();
+      error_negative_mass();
+      exit(EXIT_FAILURE);
     }
 
-    double multiplier = get_mass_factor(input_unit) / get_mass_factor(output_unit);
+    double multiplier =
+        get_mass_factor(input_unit) / get_mass_factor(output_unit);
     return input_value * multiplier;
   } else {
-   error_invalid_type();
+    error_invalid_type();
+    exit(EXIT_FAILURE);
   }
 }
 
@@ -101,6 +107,7 @@ double get_distance_factor(char* unit) {
     }
   }
   error_invalid_unit();
+  exit(EXIT_FAILURE);
 }
 
 double get_mass_factor(char* unit) {
@@ -115,7 +122,8 @@ double get_mass_factor(char* unit) {
       return mass_imperial[i].value;
     }
   }
- error_invalid_unit();
+  error_invalid_unit();
+  exit(EXIT_FAILURE);
 }
 
 double convert_temperature(char* input_unit, double input_value,
@@ -131,10 +139,12 @@ double convert_temperature(char* input_unit, double input_value,
     intermediate = input_value;
   } else {
     error_invalid_unit();
+    exit(EXIT_FAILURE);
   }
 
   if (intermediate < KELVIN_ADJUSTMENT) {
     error_invalid_temperature(intermediate);
+    exit(EXIT_FAILURE);
   }
 
   // Return in terms of output unit
@@ -145,6 +155,7 @@ double convert_temperature(char* input_unit, double input_value,
   } else if (strcmp(output_unit, "C") == TRUE) {
     return intermediate;
   } else {
-    void error_invalid_unit();
+    error_invalid_unit();
+    exit(EXIT_FAILURE);
   }
 }
