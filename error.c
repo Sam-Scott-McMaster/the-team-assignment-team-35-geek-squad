@@ -49,3 +49,10 @@ void error_same_units() {
           "different ones.\n");
   exit(EXIT_FAILURE);
 }
+
+
+// Handles invalid temprature.
+void error_invalid_temperature(double temp) {
+    fprintf(stderr, "Error: Temperature must be greater than 0 Kelvin. Provided: %.2lf\n", temp);
+    exit(EXIT_FAILURE);
+}

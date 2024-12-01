@@ -53,3 +53,4 @@ void error_invalid_unit();
 void error_negative_mass();
 void error_missing_args();
 void error_same_units();
+void error_invalid_temperature(intermediate);
