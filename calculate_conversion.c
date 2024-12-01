@@ -1,3 +1,15 @@
+/* Naqeeb Ahmadzai, Arian Fallahpour-Sichani, Soham Hajariwala, Krish Haryani
+*  Ahmadzan, fallahpa, hajariws, 
+*  /12/03/2024/
+*
+* The app will ask the user to enter data in one unit, say Celsius for temperature or meters 
+* for distance, and indicate the unit or the quantity they want to convert to, say Fahrenheit 
+* or Kilometers. Furthermore, as far as error-handling is concerned, the app will continue to 
+* ask the user to input valid numbers if valid numbers are not inputted, ensuring that there are no errors.
+*
+* This file in particular will handle the logic for performing the actual unit conversions..
+*/
+
 #include "uniconv.h"
 
 typedef struct {
@@ -65,18 +77,14 @@ double calculate_conversion(char type, char* input_unit, double input_value,
 
   // Mass calculation
   else if (type == 'm' || type == 'M') {
-    // HANDLE ERROR: Check if value is greater than 0
     if (input_value <= 0) {
-      fprintf(stderr, "Input value must be greater than 0.\n");
-      exit(EXIT_FAILURE);
+     error_negative_mass();
     }
 
-    double multiplier =
-        get_mass_factor(input_unit) / get_mass_factor(output_unit);
+    double multiplier = get_mass_factor(input_unit) / get_mass_factor(output_unit);
     return input_value * multiplier;
   } else {
-    fprintf(stderr, "Invalid type.\n");
-    exit(EXIT_FAILURE);
+   error_invalid_type();
   }
 }
 
@@ -92,10 +100,7 @@ double get_distance_factor(char* unit) {
       return distances_imperial[i].value;
     }
   }
-
-  // HANDLE ERROR: distance unit is invalid
-  fprintf(stderr, "Invalid unit.\n");
-  exit(EXIT_FAILURE);
+  error_invalid_unit();
 }
 
 double get_mass_factor(char* unit) {
@@ -110,10 +115,7 @@ double get_mass_factor(char* unit) {
       return mass_imperial[i].value;
     }
   }
-
-  // HANDLE ERROR: mass unit is invalid
-  fprintf(stderr, "Invalid unit.\n");
-  exit(EXIT_FAILURE);
+ error_invalid_unit();
 }
 
 double convert_temperature(char* input_unit, double input_value,
@@ -128,14 +130,11 @@ double convert_temperature(char* input_unit, double input_value,
   } else if (strcmp(input_unit, "C") == TRUE) {
     intermediate = input_value;
   } else {
-    // HANDLE ERROR: temperature input unit is invalid
-    fprintf(stderr, "Invalid unit.\n");
-    exit(EXIT_FAILURE);
+    error_invalid_unit();
   }
 
   if (intermediate < KELVIN_ADJUSTMENT) {
-    fprintf(stderr, "Temperature must be greater than 0K.\n");
-    exit(EXIT_FAILURE);
+    error_invalid_temperature(intermediate);
   }
 
   // Return in terms of output unit
@@ -146,8 +145,6 @@ double convert_temperature(char* input_unit, double input_value,
   } else if (strcmp(output_unit, "C") == TRUE) {
     return intermediate;
   } else {
-    // HANDLE ERROR: temperature output unit is invalid
-    fprintf(stderr, "Invalid unit.\n");
-    exit(EXIT_FAILURE);
+    void error_invalid_unit();
   }
 }

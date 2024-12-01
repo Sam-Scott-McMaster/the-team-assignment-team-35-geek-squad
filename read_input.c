@@ -1,3 +1,15 @@
+/* Naqeeb Ahmadzai, Arian Fallahpour-Sichani, Soham Hajariwala, Krish Haryani
+*  Ahmadzan, fallahpa, hajariws, 
+*  /12/03/2024/
+*
+* The app will ask the user to enter data in one unit, say Celsius for temperature or meters 
+* for distance, and indicate the unit or the quantity they want to convert to, say Fahrenheit 
+* or Kilometers. Furthermore, as far as error-handling is concerned, the app will continue to 
+* ask the user to input valid numbers if valid numbers are not inputted, ensuring that there are no errors.
+*
+* This file in particular will handle reading and processing command-line arguments for the program.
+*/
+
 #include "uniconv.h"
 
 int PROVIDED_INPUT_TYPE = FALSE;
@@ -56,10 +68,9 @@ void read_input(int argc, char *argv[], char *type, double *input_value,
     i++;
   }
 
-  // HANDLE ERROR: check if all required inputs have been provided
+
   if (PROVIDED_INPUT_TYPE == FALSE || PROVIDED_INPUT_UNIT == FALSE ||
       PROVIDED_OUTPUT_UNIT == FALSE) {
-    print_usage();
-    exit(EXIT_FAILURE);
+    error_missing_args();
   }
 }

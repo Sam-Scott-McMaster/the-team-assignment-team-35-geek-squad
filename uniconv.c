@@ -1,3 +1,15 @@
+/* Naqeeb Ahmadzai, Arian Fallahpour-Sichani, Soham Hajariwala, Krish Haryani
+*  Ahmadzan, fallahpa, hajariws, 
+*  /12/03/2024/
+*
+* The app will ask the user to enter data in one unit, say Celsius for temperature or meters 
+* for distance, and indicate the unit or the quantity they want to convert to, say Fahrenheit 
+* or Kilometers. Furthermore, as far as error-handling is concerned, the app will continue to 
+* ask the user to input valid numbers if valid numbers are not inputted, ensuring that there are no errors.
+*
+* This file in particular will handle the main execution logic for the unit conversion program.
+*/
+
 #include "uniconv.h"
 
 int OPTION_REMOVE_UNIT = FALSE;
@@ -13,8 +25,7 @@ int main(int argc, char *argv[]) {
 
   // HANDLE ERROR: Check if input and output are not the same
   if (strcmp(input_unit, output_unit) == 0) {
-    fprintf(stderr, "Input and output units must be different.\n");
-    exit(EXIT_FAILURE);
+   error_same_units();
   }
 
   // If input value not provided, continuously read input value
