@@ -21,19 +21,19 @@ The following are the correct values for the type option:
 - `v` or `V`: Volume
 - `m` or `M`: Mass
 
-- **`-iv <number><unit>`**  
+**`-iv <number><unit>`**  
   Specify the input value for the conversion. This input is optional, and if not provided, it will instead run a loop to continuously convert the numbers provided in stdin
   Example: `100`, `500`, `1`.
 
-- **`-iu <unit>`**  
+**`-iu <unit>`**  
   Specify the input unit to convert from. This is a required field.  
   Example: `m`, `mi`, `kg`.
 
-- **`-o <unit>`**  
+**`-o <unit>`**  
   Specify the target unit for the conversion. This is a required field.
   Example: `m`, `mi`, `kg`.
 
-- **`-ru`**  
+*`-ru`**  
   Remove the unit from the output.  
   Example: Converts `1000m` to `1km` as `1` instead of `1km`.
 
